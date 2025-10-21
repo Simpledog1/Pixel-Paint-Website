@@ -172,3 +172,15 @@ function updateBrushSizeDisplay() {
     display.textContent = brushSize + 'px';
   }
 }
+
+// ========== COLOR VALIDATION ==========
+function isValidHex(hex) {
+  return /^#[0-9A-Fa-f]{6}$/.test(hex);
+}
+
+function updateCurrentColorDisplay() {
+  const display = document.getElementById('current-color-display');
+  if (display) {
+    display.style.backgroundColor = currentColor;
+  }
+}
