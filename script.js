@@ -470,7 +470,7 @@ function initEditor() {
   drawCanvas();
   updateCurrentColorDisplay();
   updateBrushSizeDisplay();
-  
+
 // Color picker listener
   const colorPicker = document.getElementById('color-picker');
   if (colorPicker) {
@@ -481,3 +481,9 @@ function initEditor() {
       updateCurrentColorDisplay();
     });
   }
+
+  // Hex input listener
+  const hexInput = document.getElementById('hex-input');
+  if (hexInput) {
+    hexInput.addEventListener('input', (e) => {
+      let value = e.target.value.trim();
