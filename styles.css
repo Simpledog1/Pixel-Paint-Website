@@ -181,3 +181,50 @@ nav a:hover {
 .cta-button:hover {
   background: #7C3AED;
 }
+
+/* Features Section */
+.features {
+  padding: 60px 20px;
+  background: white;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #111827;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.feature-card {
+  background: #f9fafb;
+  padding: 30px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  color: #8B5CF6;
+  margin-bottom: 10px;
+}
