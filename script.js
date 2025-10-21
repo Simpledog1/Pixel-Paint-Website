@@ -219,3 +219,72 @@ function updateColorSelection() {
     }
   });
 }
+
+
+// ========== LAYERS ==========
+function renderLayers() {
+  const list = document.getElementById('layers-list');
+  if (!list) return;
+  
+  list.innerHTML = '';
+  
+  [...layers].reverse().forEach(layer => {
+    const item = document.createElement('div');
+    item.className = 'layer-item';
+    if (layer.id === activeLayerId) {
+      item.classList.add('active');
+    }
+    
+    item.innerHTML = `
+      <span class="layer-name">${layer.name}</span>
+      <div class="layer-controls">
+        <button class="layer-control-btn" onclick="toggleLayerVisibility(${layer.id}); event.stopPropagation()">
+          ${layer.visible ? '👁️' : '👁️‍🗨️'}
+        </button>
+        ${layers.length > 1 ? `
+          <button class="layer-control-btn delete" onclick="deleteLayer(${layer.id}); event.stopPropagation()">
+            🗑️
+          </button>
+        ` : ''}
+      </div>
+    `;
+    
+    item.onclick = () => {
+      activeLayerId = layer.id;
+      renderLayers();
+    };
+    
+    list.appendChild(item);
+  });
+}
+
+function addLayer() {
+  layers.push({
+    id: nextLayerId,
+    name: `Layer ${nextLayerId}`,
+    visible: true,
+    pixels: {}
+  });
+  activeLayerId = nextLayerId;
+  nextLayerId++;
+  renderLayers();
+  drawCanvas();
+}
+
+function deleteLayer(id) {
+  if (layers.length === 1) return;
+  layers = layers.filter(l => l.id !== id);
+  if (activeLayerId === id) {
+    activeLayerId = layers[0].id;
+  }
+  renderLayers();
+  drawCanvas();
+}
+
+function toggleLayerVisibility(id) {
+  layers = layers.map(l => 
+    l.id === id ? { ...l, visible: !l.visible } : l
+  );
+  renderLayers();
+  drawCanvas();
+}
