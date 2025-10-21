@@ -710,4 +710,300 @@ footer p {
   flex-shrink: 0;
 }
 
+/* Layers */
+.layer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.add-layer-btn {
+  padding: 6px 12px;
+  background: #8B5CF6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.add-layer-btn:hover {
+  background: #7C3AED;
+}
+
+.layers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.layer-item {
+  padding: 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.layer-item:hover {
+  background: #f9fafb;
+}
+
+.layer-item.active {
+  background: #EDE9FE;
+  border-color: #8B5CF6;
+}
+
+.layer-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.layer-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.layer-control-btn {
+  padding: 4px 8px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.8rem;
+}
+
+.layer-control-btn:hover {
+  background: #f3f4f6;
+}
+
+.layer-control-btn.delete:hover {
+  background: #fee;
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* ========== TABLET STYLES (768px+) ========== */
+@media screen and (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  nav {
+    display: block;
+    position: static;
+    padding: 0;
+    background: none;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 25px;
+  }
+
+  .tel-link {
+    margin-top: 0;
+    margin-left: 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-buttons {
+    flex-direction: row;
+  }
+
+  .submit-btn, .reset-btn {
+    flex: 1;
+  }
+
+  .pricing-table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #e5e7eb;
+  }
+
+  .pricing-list {
+    display: none;
+  }
+
+  .pricing-table th,
+  .pricing-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .pricing-table th {
+    background: #8B5CF6;
+    color: white;
+    font-weight: 700;
+  }
+
+  .pricing-table tr:nth-child(even) {
+    background: #f9fafb;
+  }
+
+  .pricing-table tr:nth-child(odd) {
+    background: white;
+  }
+
+  .pricing-table tr:hover {
+    background: #f3f4f6;
+  }
+}
+
+/* ========== DESKTOP STYLES (1024px+) ========== */
+@media screen and (min-width: 1024px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-content {
+    column-count: 2;
+    column-gap: 40px;
+  }
+
+  .about-content p {
+    break-inside: avoid;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr 300px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .editor-page .container {
+    padding: 5px;
+    max-width: 100vw;
+  }
+
+  .main-grid {
+    gap: 5px;
+    width: 100%;
+  }
+
+  .canvas-section {
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .tool-group {
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .tool-btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .zoom-controls, .brush-size-controls {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .brush-size-controls label {
+    font-size: 0.85rem;
+  }
+
+  .canvas-container {
+    max-height: 45vh;
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  #pixel-canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .sidebar {
+    gap: 10px;
+  }
+
+  .panel {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .panel h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .color-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+  }
+
+  .color-picker-container {
+    gap: 8px;
+  }
+
+  .color-picker-container label {
+    font-size: 0.85rem;
+  }
+
+  header {
+    padding: 8px 10px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    gap: 8px;
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hamburger span {
+    width: 22px;
+  }
+}
+
 
