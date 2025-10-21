@@ -19,3 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
   if (hamburger) {
     hamburger.addEventListener('click', toggleMenu);
   }
+
+
+  // Close menu when clicking nav links on mobile
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth < 768) {
+        const nav = document.getElementById('nav-menu');
+        if (nav) {
+          nav.classList.remove('active');
+        }
+      }
+    });
+  });
+});
