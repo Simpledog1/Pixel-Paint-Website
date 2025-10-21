@@ -288,3 +288,34 @@ function toggleLayerVisibility(id) {
   renderLayers();
   drawCanvas();
 }
+
+// ========== CANVAS DRAWING ==========
+function drawCanvas() {
+  const canvas = document.getElementById('pixel-canvas');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  const pixelSize = 20 * zoom;
+  const size = gridSize * pixelSize;
+  
+  canvas.width = size;
+  canvas.height = size;
+  
+  // Clear and draw background
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, size, size);
+  
+  // Draw grid
+  ctx.strokeStyle = '#e5e7eb';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= gridSize; i++) {
+    ctx.beginPath();
+    ctx.moveTo(i * pixelSize, 0);
+    ctx.lineTo(i * pixelSize, size);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0, i * pixelSize);
+    ctx.lineTo(size, i * pixelSize);
+    ctx.stroke();
+  }
+  
