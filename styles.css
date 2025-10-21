@@ -1006,4 +1006,35 @@ footer p {
   }
 }
 
+/* ========== PRINT STYLES ========== */
+@media print {
+  header, nav, .hamburger, .tel-link, .cta-button, form, .social-icons, video {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .hero, .features, .gallery, .about, .pricing, footer {
+    padding: 20px 0;
+  }
+
+  .section-title {
+    page-break-after: avoid;
+  }
+
+  .feature-card, figure, .pricing-item {
+    page-break-inside: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+    color: black;
+  }
+
+  
+}
+
 
