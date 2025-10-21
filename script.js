@@ -184,3 +184,28 @@ function updateCurrentColorDisplay() {
     display.style.backgroundColor = currentColor;
   }
 }
+
+// ========== COLOR PALETTE ==========
+function renderColorPalette() {
+  const palette = document.getElementById('color-palette');
+  if (!palette) return;
+  
+  palette.innerHTML = '';
+  
+  colors.forEach(color => {
+    const swatch = document.createElement('div');
+    swatch.className = 'color-swatch';
+    swatch.style.backgroundColor = color;
+    if (color === currentColor) {
+      swatch.classList.add('active');
+    }
+    swatch.onclick = () => {
+      currentColor = color;
+      document.getElementById('color-picker').value = color;
+      document.getElementById('hex-input').value = color;
+      updateColorSelection();
+      updateCurrentColorDisplay();
+    };
+    palette.appendChild(swatch);
+  });
+}
