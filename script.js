@@ -135,3 +135,22 @@ function setTool(tool) {
   document.getElementById('bucket-tool')?.classList.remove('active');
   document.getElementById(`${tool}-tool`)?.classList.add('active');
 }
+
+// ========== ZOOM ==========
+function zoomIn() {
+  zoom = Math.min(2, zoom + 0.25);
+  updateZoom();
+}
+
+function zoomOut() {
+  zoom = Math.max(0.5, zoom - 0.25);
+  updateZoom();
+}
+
+function updateZoom() {
+  const zoomLevel = document.getElementById('zoom-level');
+  if (zoomLevel) {
+    zoomLevel.textContent = Math.round(zoom * 100) + '%';
+  }
+  drawCanvas();
+}
