@@ -470,3 +470,20 @@ footer p {
   font-size: 0.9rem;
 }
 
+/* ========== EDITOR PAGE STYLES ========== */
+
+.editor-page {
+  background: #f3f4f6;
+}
+
+.editor-page .container {
+  padding: 20px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
