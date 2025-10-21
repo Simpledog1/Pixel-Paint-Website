@@ -13,3 +13,9 @@ function toggleMenu() {
   }
 }
 
+// Event listener for hamburger menu
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', toggleMenu);
+  }
