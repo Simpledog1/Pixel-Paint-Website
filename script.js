@@ -487,3 +487,9 @@ function initEditor() {
   if (hexInput) {
     hexInput.addEventListener('input', (e) => {
       let value = e.target.value.trim();
+
+      // Auto-add # if missing
+      if (value && !value.startsWith('#')) {
+        value = '#' + value;
+        e.target.value = value;
+      }
