@@ -34,3 +34,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// ========== SMOOTH SCROLL WITH OFFSET ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && href.length > 1) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        const offset = 80;
+        const targetPos = target.offsetTop - offset;
+        window.scrollTo({
+          top: targetPos,
+          behavior: 'smooth'
+        });
+      }
+    }
+  });
+});
