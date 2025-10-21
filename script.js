@@ -70,3 +70,39 @@ document.addEventListener('DOMContentLoaded', () => {
       
       let isValid = true;
       let errors = [];
+
+      // Name validation
+      if (name.value.trim().length < 2) {
+        errors.push('Name must be at least 2 characters long');
+        isValid = false;
+      }
+      
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.value.trim())) {
+        errors.push('Please enter a valid email address');
+        isValid = false;
+      }
+      
+      // Subject validation
+      if (subject.value === '') {
+        errors.push('Please select a subject');
+        isValid = false;
+      }
+      
+      // Message validation
+      if (message.value.trim().length < 10) {
+        errors.push('Message must be at least 10 characters long');
+        isValid = false;
+      }
+      
+      // Display errors or submit
+      if (!isValid) {
+        alert('Please fix the following errors:\n\n' + errors.join('\n'));
+      } else {
+        alert('Thank you for your message! We\'ll get back to you soon.');
+        this.reset();
+      }
+    });
+  }
+});
