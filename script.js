@@ -126,3 +126,12 @@ const colors = [
   '#000000', '#FFFFFF', '#8B5CF6', '#EC4899', '#10B981',
   '#F59E0B', '#3B82F6', '#EF4444', '#6B7280', '#14B8A6'
 ];
+
+// ========== TOOLS ==========
+function setTool(tool) {
+  currentTool = tool;
+  document.getElementById('brush-tool')?.classList.remove('active');
+  document.getElementById('eraser-tool')?.classList.remove('active');
+  document.getElementById('bucket-tool')?.classList.remove('active');
+  document.getElementById(`${tool}-tool`)?.classList.add('active');
+}
