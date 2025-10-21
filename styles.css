@@ -301,3 +301,45 @@ video {
   width: 100%;
   display: block;
 }
+
+/* Pricing/Table Section */
+.pricing {
+  padding: 60px 20px;
+  background: white;
+}
+
+.pricing-note {
+  text-align: center;
+  font-style: italic;
+  color: #6b7280;
+  margin-top: 20px;
+}
+
+.pricing-table {
+  display: none;
+}
+
+.pricing-list {
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pricing-item {
+  background: #f9fafb;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+}
+
+.pricing-item h4 {
+  color: #8B5CF6;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.pricing-item p {
+  color: #4b5563;
+  margin: 5px 0;
+}
