@@ -329,3 +329,68 @@ function drawCanvas() {
     });
   });
 }
+
+// ========== PAINTING ==========
+function handleCanvasMouseDown(e) {
+  isDrawing = true;
+  const { row, col } = getPixelCoords(e);
+  
+  if (currentTool === 'brush') {
+    paintPixel(row, col);
+  } else if (currentTool === 'eraser') {
+    erasePixel(row, col);
+  } else if (currentTool === 'bucket') {
+    bucketFill(row, col);
+  }
+}
+
+function handleCanvasMouseMove(e) {
+  if (!isDrawing) return;
+  const { row, col } = getPixelCoords(e);
+  
+  if (currentTool === 'brush') {
+    paintPixel(row, col);
+  } else if (currentTool === 'eraser') {
+    erasePixel(row, col);
+  }
+}
+
+function handleCanvasMouseUp() {
+  isDrawing = false;
+}
+
+function getPixelCoords(e) {
+  const canvas = document.getElementById('pixel-canvas');
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const pixelSize = 20 * zoom;
+  const col = Math.floor(x / pixelSize);
+  const row = Math.floor(y / pixelSize);
+  return { row, col };
+}
+
+function paintPixel(row, col) {
+  if (row < 0 || row >= gridSize || col < 0 || col >= gridSize) return;
+  
+  const halfSize = Math.floor(brushSize / 2);
+  
+  for (let r = row - halfSize; r <= row + halfSize; r++) {
+    for (let c = col - halfSize; c <= col + halfSize; c++) {
+      if (r >= 0 && r < gridSize && c >= 0 && c < gridSize) {
+        layers = layers.map(l => {
+          if (l.id === activeLayerId) {
+            const key = `${r}-${c}`;
+            return {
+              ...l,
+              pixels: { ...l.pixels, [key]: currentColor }
+            };
+          }
+          return l;
+        });
+      }
+    }
+  }
+  
+  drawCanvas();
+}
