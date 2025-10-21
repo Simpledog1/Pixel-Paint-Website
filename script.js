@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', toggleMenu);
   }
 
-
   // Close menu when clicking nav links on mobile
   const navLinks = document.querySelectorAll('nav a');
   navLinks.forEach(link => {
@@ -70,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       let isValid = true;
       let errors = [];
-
+      
       // Name validation
       if (name.value.trim().length < 2) {
         errors.push('Name must be at least 2 characters long');
@@ -219,7 +218,6 @@ function updateColorSelection() {
     }
   });
 }
-
 
 // ========== LAYERS ==========
 function renderLayers() {
@@ -470,8 +468,8 @@ function initEditor() {
   drawCanvas();
   updateCurrentColorDisplay();
   updateBrushSizeDisplay();
-
-// Color picker listener
+  
+  // Color picker listener
   const colorPicker = document.getElementById('color-picker');
   if (colorPicker) {
     colorPicker.addEventListener('input', (e) => {
@@ -487,14 +485,14 @@ function initEditor() {
   if (hexInput) {
     hexInput.addEventListener('input', (e) => {
       let value = e.target.value.trim();
-
+      
       // Auto-add # if missing
       if (value && !value.startsWith('#')) {
         value = '#' + value;
         e.target.value = value;
       }
-
-    // Validate hex color
+      
+      // Validate hex color
       if (isValidHex(value)) {
         currentColor = value.toUpperCase();
         document.getElementById('color-picker').value = currentColor;
