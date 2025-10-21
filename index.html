@@ -72,3 +72,34 @@
             <canvas id="pixel-canvas"></canvas>
           </div>
         </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Color Palette -->
+          <div class="panel">
+            <h3>Colors</h3>
+            <div class="color-grid" id="color-palette"></div>
+            <div class="color-picker-container">
+              <label for="color-picker" style="font-size: 0.9rem; font-weight: 600; color: #6b7280; margin-bottom: 5px;">Color Wheel:</label>
+              <input type="color" id="color-picker" class="color-picker" value="#8B5CF6">
+              
+              <label for="hex-input" style="font-size: 0.9rem; font-weight: 600; color: #6b7280; margin-top: 5px;">Hex Code:</label>
+              <div class="hex-input-group">
+                <input type="text" id="hex-input" class="hex-input" value="#8B5CF6" maxlength="7" placeholder="#000000">
+                <div class="current-color-display" id="current-color-display"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Layers -->
+          <div class="panel">
+            <div class="layer-header">
+              <h3>Layers</h3>
+              <button class="add-layer-btn" onclick="addLayer()">+ Add</button>
+            </div>
+            <div class="layers-list" id="layers-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
