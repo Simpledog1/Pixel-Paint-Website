@@ -106,3 +106,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ========== EDITOR PAGE FUNCTIONALITY ==========
+
+// Global State for Editor
+let gridSize = 32;
+let zoom = 1;
+let currentColor = '#8B5CF6';
+let currentTool = 'brush';
+let brushSize = 1;
+let layers = [
+  { id: 1, name: 'Layer 1', visible: true, pixels: {} }
+];
+let activeLayerId = 1;
+let nextLayerId = 2;
+let isDrawing = false;
+
+const colors = [
+  '#000000', '#FFFFFF', '#8B5CF6', '#EC4899', '#10B981',
+  '#F59E0B', '#3B82F6', '#EF4444', '#6B7280', '#14B8A6'
+];
