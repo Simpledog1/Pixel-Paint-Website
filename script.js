@@ -319,3 +319,13 @@ function drawCanvas() {
     ctx.stroke();
   }
   
+  // Draw pixels from visible layers
+  layers.forEach(layer => {
+    if (!layer.visible) return;
+    Object.entries(layer.pixels).forEach(([key, color]) => {
+      const [row, col] = key.split('-').map(Number);
+      ctx.fillStyle = color;
+      ctx.fillRect(col * pixelSize + 1, row * pixelSize + 1, pixelSize - 2, pixelSize - 2);
+    });
+  });
+}
