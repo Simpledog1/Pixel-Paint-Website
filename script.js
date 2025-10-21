@@ -209,3 +209,13 @@ function renderColorPalette() {
     palette.appendChild(swatch);
   });
 }
+
+function updateColorSelection() {
+  document.querySelectorAll('.color-swatch').forEach((swatch, i) => {
+    if (colors[i] === currentColor) {
+      swatch.classList.add('active');
+    } else {
+      swatch.classList.remove('active');
+    }
+  });
+}
