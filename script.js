@@ -505,3 +505,12 @@ function initEditor() {
         hexInput.classList.add('invalid');
       }
     });
+
+    // Hex input blur - revert to current color if invalid
+    hexInput.addEventListener('blur', (e) => {
+      if (!isValidHex(e.target.value)) {
+        e.target.value = currentColor;
+        hexInput.classList.remove('invalid');
+      }
+    });
+  }
