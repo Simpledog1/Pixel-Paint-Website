@@ -394,3 +394,68 @@ function paintPixel(row, col) {
   
   drawCanvas();
 }
+
+function erasePixel(row, col) {
+  if (row < 0 || row >= gridSize || col < 0 || col >= gridSize) return;
+  
+  const halfSize = Math.floor(brushSize / 2);
+  
+  for (let r = row - halfSize; r <= row + halfSize; r++) {
+    for (let c = col - halfSize; c <= col + halfSize; c++) {
+      if (r >= 0 && r < gridSize && c >= 0 && c < gridSize) {
+        layers = layers.map(l => {
+          if (l.id === activeLayerId) {
+            const key = `${r}-${c}`;
+            const newPixels = { ...l.pixels };
+            delete newPixels[key];
+            return {
+              ...l,
+              pixels: newPixels
+            };
+          }
+          return l;
+        });
+      }
+    }
+  }
+  
+  drawCanvas();
+}
+
+function bucketFill(startRow, startCol) {
+  if (startRow < 0 || startRow >= gridSize || startCol < 0 || startCol >= gridSize) return;
+  
+  const activeLayer = layers.find(l => l.id === activeLayerId);
+  if (!activeLayer) return;
+
+  const startKey = `${startRow}-${startCol}`;
+  const targetColor = activeLayer.pixels[startKey] || null;
+  
+  if (targetColor === currentColor) return;
+
+  const newPixels = { ...activeLayer.pixels };
+  const stack = [[startRow, startCol]];
+  const visited = new Set();
+
+  while (stack.length > 0) {
+    const [row, col] = stack.pop();
+    const key = `${row}-${col}`;
+
+    if (visited.has(key)) continue;
+    if (row < 0 || row >= gridSize || col < 0 || col >= gridSize) continue;
+
+    const currentPixelColor = newPixels[key] || null;
+    if (currentPixelColor !== targetColor) continue;
+
+    visited.add(key);
+    newPixels[key] = currentColor;
+
+    stack.push([row - 1, col], [row + 1, col], [row, col - 1], [row, col + 1]);
+  }
+
+  layers = layers.map(l => 
+    l.id === activeLayerId ? { ...l, pixels: newPixels } : l
+  );
+  
+  drawCanvas();
+}
