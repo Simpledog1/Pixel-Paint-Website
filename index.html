@@ -53,3 +53,17 @@
                 🧺 Bucket
               </button>
             </div>
+
+            <div class="brush-size-controls">
+              <label for="brush-size" style="font-size: 0.9rem; font-weight: 600; margin-right: 8px;">Size:</label>
+              <button class="size-btn" onclick="window.decreaseBrushSize()">−</button>
+              <span class="brush-size-display" id="brush-size-display">1px</span>
+              <button class="size-btn" onclick="window.increaseBrushSize()">+</button>
+            </div>
+            
+            <div class="zoom-controls">
+              <button class="zoom-btn" onclick="window.zoomOut()">−</button>
+              <span class="zoom-level" id="zoom-level">100%</span>
+              <button class="zoom-btn" onclick="window.zoomIn()">+</button>
+            </div>
+          </div>
