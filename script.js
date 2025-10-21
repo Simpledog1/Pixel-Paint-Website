@@ -493,3 +493,15 @@ function initEditor() {
         value = '#' + value;
         e.target.value = value;
       }
+
+    // Validate hex color
+      if (isValidHex(value)) {
+        currentColor = value.toUpperCase();
+        document.getElementById('color-picker').value = currentColor;
+        hexInput.classList.remove('invalid');
+        updateColorSelection();
+        updateCurrentColorDisplay();
+      } else if (value.length > 0) {
+        hexInput.classList.add('invalid');
+      }
+    });
