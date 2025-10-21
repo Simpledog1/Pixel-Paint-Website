@@ -514,3 +514,16 @@ function initEditor() {
       }
     });
   }
+
+  // Canvas mouse events
+  canvas.addEventListener('mousedown', handleCanvasMouseDown);
+  canvas.addEventListener('mousemove', handleCanvasMouseMove);
+  canvas.addEventListener('mouseup', handleCanvasMouseUp);
+  canvas.addEventListener('mouseleave', handleCanvasMouseUp);
+}
+
+// ========== START ==========
+document.addEventListener('DOMContentLoaded', () => {
+  initEditor();
+  console.log('Pixel Paint loaded successfully!');
+});
