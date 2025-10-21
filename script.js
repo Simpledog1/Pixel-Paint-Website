@@ -470,3 +470,14 @@ function initEditor() {
   drawCanvas();
   updateCurrentColorDisplay();
   updateBrushSizeDisplay();
+  
+// Color picker listener
+  const colorPicker = document.getElementById('color-picker');
+  if (colorPicker) {
+    colorPicker.addEventListener('input', (e) => {
+      currentColor = e.target.value.toUpperCase();
+      document.getElementById('hex-input').value = currentColor;
+      updateColorSelection();
+      updateCurrentColorDisplay();
+    });
+  }
