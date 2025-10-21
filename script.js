@@ -459,3 +459,14 @@ function bucketFill(startRow, startCol) {
   
   drawCanvas();
 }
+
+// ========== INITIALIZE EDITOR ==========
+function initEditor() {
+  const canvas = document.getElementById('pixel-canvas');
+  if (!canvas) return; // Not on editor page
+  
+  renderColorPalette();
+  renderLayers();
+  drawCanvas();
+  updateCurrentColorDisplay();
+  updateBrushSizeDisplay();
