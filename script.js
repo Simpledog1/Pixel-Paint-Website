@@ -53,3 +53,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ========== HOME PAGE - FORM VALIDATION ==========
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.querySelector('form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = this.querySelector('#name');
+      const email = this.querySelector('#email');
+      const message = this.querySelector('#message');
+      const subject = this.querySelector('#subject');
+      
+      if (!name || !email || !message || !subject) return;
+      
+      let isValid = true;
+      let errors = [];
