@@ -154,3 +154,21 @@ function updateZoom() {
   }
   drawCanvas();
 }
+
+// ========== BRUSH SIZE ==========
+function increaseBrushSize() {
+  brushSize = Math.min(5, brushSize + 1);
+  updateBrushSizeDisplay();
+}
+
+function decreaseBrushSize() {
+  brushSize = Math.max(1, brushSize - 1);
+  updateBrushSizeDisplay();
+}
+
+function updateBrushSizeDisplay() {
+  const display = document.getElementById('brush-size-display');
+  if (display) {
+    display.textContent = brushSize + 'px';
+  }
+}
